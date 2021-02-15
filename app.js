@@ -15,11 +15,23 @@ var dishRouter = require("./routes/dishRouter");
 var promoRouter = require("./routes/promoRouter");
 var leaderRouter = require("./routes/leaderRouter");
 const uploadRouter = require("./routes/uploadRouter");
+const favoritesRouter = require("./routes/favoritesRouter");
+
+var dashboardRouter = require("./routes/dashboardRouter");
+var aboutUsRouter = require("./routes/aboutUsRouter");
+var gammingRouter = require("./routes/gammingRouter");
+
 const mongoose = require("mongoose");
 
 const Dishes = require("./models/dishes");
 const Promotions = require("./models/promotions");
 const Leaders = require("./models/leaders");
+const Favorites = require("./models/favorites");
+
+const Dashboard = require("./models/dashboard");
+const AboutUs = require("./models/aboutUs");
+const Gamming = require("./models/gamming");
+
 const e = require("express");
 
 const url = config.mongoUrl;
@@ -71,6 +83,11 @@ app.use("/dishes", dishRouter);
 app.use("/promotions", promoRouter);
 app.use("/leaders", leaderRouter);
 app.use("/imageUpload", uploadRouter);
+app.use("/favorites", favoritesRouter);
+
+app.use("/dashboard", dashboardRouter);
+app.use("/aboutUs", aboutUsRouter);
+app.use("/gamming", gammingRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
